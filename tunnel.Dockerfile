@@ -10,9 +10,8 @@ RUN useradd --create-home tunnel
 # USER tunnel
 WORKDIR /home/tunnel
 
-RUN wget https://github.com/wangyu-/udp2raw-tunnel/releases/download/20200818.0/udp2raw_binaries.tar.gz && \
-    tar xvf *.tar.gz && \
-    rm *.tar.gz
+RUN wget https://github.com/erebe/wstunnel/releases/download/v4.0/wstunnel-x64-linux
+RUN mv wstunnel-x64-linux wstunnel && chmod +x wstunnel
 
 ADD ./start-tunnel.sh .
 RUN chmod +x ./start-tunnel.sh
